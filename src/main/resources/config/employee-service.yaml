@@ -1,0 +1,17 @@
+server:
+  port: 8082 # Specifies the port on which this Spring Boot application will run. Default is 8080, but it is overridden to 8082 here.
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka # Specifies the Eureka server's URL where this application will register itself as a client. 'localhost:8761' is the default port for Eureka server.
+
+
+ # Configures distributed tracing for the application.
+ # 'probability: 1.0' means 100% of the requests will be traced(in this case, it will be the zipkin server).
+ #  Lower values (e.g., 0.5) would trace a smaller percentage of requests.
+   
+management:
+  tracing:
+    sampling:
+      probability: 1.0
